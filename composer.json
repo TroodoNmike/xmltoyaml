@@ -1,0 +1,12 @@
+{
+    "name": "mike/xmltoyaml",
+    "type": "library",
+    "require": {
+        "symfony/yaml": "dev-master"
+    },
+    "authors": [
+        {
+            "name": "Mike",
+        }
+    ]
+}
