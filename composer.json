@@ -3,6 +3,7 @@
     "description": "Stand alone component. Working progress",
     "type": "library",
     "require": {
+        "php": ">=5.3.0",
         "symfony/yaml": "dev-master"
     },
     "authors": [
