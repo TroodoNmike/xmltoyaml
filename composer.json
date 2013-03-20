@@ -1,6 +1,6 @@
 {
-    "name": "mike/xmltoyaml",
-    "description": "test",
+    "name": "xmltoyaml/yamltoxml",
+    "description": "Stand alone component. Working progress",
     "type": "library",
     "require": {
         "symfony/yaml": "dev-master"
