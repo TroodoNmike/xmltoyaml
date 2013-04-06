@@ -1,16 +1,26 @@
 <?php
-
 namespace XmlToYaml;
 
 use Symfony\Component\Yaml\Yaml;
 
+/*
+ * Will convert xml format to yaml string
+ */
 class XmlToYaml
 {
+    /**
+     * Options
+     */
     protected $options = array(
         'parameters' => true,
         'services'   => true
         );
 
+    /**
+     * Will create object with options
+     *
+     * @param array $options pass options
+     */
     public function __construct($options = array())
     {
         $this->options = array_merge($options, $this->options);
@@ -18,6 +28,8 @@ class XmlToYaml
 
     public function convert(\SimpleXMLElement $xml)
     {
+        $data = array();
+
         if ($this->options['parameters']) {
             $data[] = $this->getParameters($xml);
         }
@@ -26,16 +38,21 @@ class XmlToYaml
             $data[] = $this->getServices($xml);
         }
 
-        $data = array();
         $string = '';
 
         foreach ($data as $value) {
             $string .= $value;
         }
         return $string;
-
     }
 
+    /**
+     * Will deal with parameter section
+     *
+     * @param object $xml
+     *
+     * @return string
+     */
     protected function getParameters($xml)
     {
         $args = array();
@@ -49,6 +66,12 @@ class XmlToYaml
         return Yaml::dump($yaml, 3);
     }
 
+    /**
+     * Will deal with service section
+     *
+     * @param object $xml
+     * @return string
+     */
     protected function getServices($xml)
     {
         $yaml = array('services' => array());
